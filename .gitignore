@@ -1,3 +1,6 @@
 /venv/
 /emailsite/emailsite/__init__.py
 /.idea/
+/emailsite/sendapp/__init__.py
+/emailsite/emailsite/__pycache__/
+/emailsite/sendapp/migrations/
