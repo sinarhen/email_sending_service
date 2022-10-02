@@ -4,3 +4,5 @@
 /emailsite/sendapp/__init__.py
 /emailsite/emailsite/__pycache__/
 /emailsite/sendapp/migrations/
+/emailsite/emailsite/private_data.py
+/emailsite/__init__.py

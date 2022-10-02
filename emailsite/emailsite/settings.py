@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from private_data import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,14 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'Your gmail email'
-EMAIL_HOST_PASSWORD = 'Your gmail password'
-DEFAULT_FROM_EMAIL = 'Your name'
-DEFAULT_TO_EMAIL = 'Your email'
-
+EMAIL_USE_SSL = ssl
+EMAIL_USE_TLS = email_use_tls
+EMAIL_HOST = email_host
+EMAIL_PORT = email_port
+EMAIL_HOST_USER = email_host_user
+EMAIL_HOST_PASSWORD = email_host_password
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sendapp.apps.SendappConfig',
 ]
 
 MIDDLEWARE = [
