@@ -6,3 +6,5 @@
 /emailsite/sendapp/migrations/
 /emailsite/emailsite/private_data.py
 /emailsite/__init__.py
+/emailsite/db.sqlite3
+/emailsite/static/
