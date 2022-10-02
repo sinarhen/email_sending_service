@@ -8,9 +8,12 @@ from .forms import ContactForm
 
 def index(request):
     form = ContactForm()
-    if request.method == request.POST:
+    print('INDEX')
+    if request.method == 'POST':
+        print('POST')
         form = ContactForm(request.POST)
         if form.is_valid():
+            print('VALID')
             email = form.cleaned_data['email']
             data = """
             Hello there!
@@ -21,9 +24,14 @@ def index(request):
             week. Make sure that you read it. It is usually very informative.
         
             Cheers!"""
-            send_mail('Subject', data, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=[email], fail_silently=False)
+            send_mail('Subject', data, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=[email],
+                      fail_silently=False)
+            print('SENDED')
             print(email)
-            return redirect('index')
+            return redirect('success')
     context = {'form': form}
     return render(request, 'sendapp/index.html', context=context)
 
+
+def success(request):
+    return render(request, 'sendapp/success.html')
