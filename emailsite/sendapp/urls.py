@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import views
+from .views import *
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('success/', views.succes, name='success'),
+    path('', index, name='index'),
+    path('success/', success, name='success'),
 ]
