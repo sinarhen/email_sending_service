@@ -19,5 +19,5 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='index'),
-    path('success/', success, name='success'),
+    path('success', success, name='success'),
 ]

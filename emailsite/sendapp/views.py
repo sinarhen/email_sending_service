@@ -1,11 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    if request.method == request.POST:
+        return redirect(success(request.POST))
+    return render(request, 'sendapp/index.html')
 
 
 def success(request):
@@ -19,5 +22,6 @@ def success(request):
     week. Make sure that you read it. It is usually very informative.
 
     Cheers!"""
-    send_mail('Subject', data, [email], fail_silently=False)
-    return render(request, 'success.html')
+    send_mail('Subject', data, from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=[email], fail_silently=False)
+    print(email)
+    return render(request, 'sendapp/success.html')
